@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CMRM Harmony Lab 6 — Building Blues Complexification</title>
+<style>
+:root{--bg:#f4f1ea;--paper:#fffef9;--ink:#20272d;--muted:#65727a;--line:#d8d2c7;--accent:#254f68;--accent2:#6f817c;--hot:#b76237;--pale:#edf3f6;--changed:#fff0cf;--changedLine:#c68726;--stable:#f7f5ef;--good:#2d6b43}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}a{color:var(--accent)}header,main,footer{max-width:1260px;margin:auto;padding-left:24px;padding-right:24px}header{padding-top:28px;padding-bottom:18px}.topnav{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.back{text-decoration:none;font-size:14px}.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-top:18px}h1,h2,h3{font-family:Georgia,"Times New Roman",serif}h1{font-size:clamp(36px,5vw,58px);margin:4px 0 8px}h2{font-size:28px;margin:0 0 8px}h3{font-size:20px;margin:0 0 8px}.lead{max-width:900px;color:var(--muted)}.question{display:inline-block;margin-top:10px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:10px;font-family:Georgia,serif;font-size:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin:16px 0}.sectionnum{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--accent)}.callout{background:var(--pale);border-left:4px solid var(--accent);padding:12px 14px;border-radius:8px;margin:12px 0}.warning{background:#fff6e8;border-left-color:var(--hot)}button{font:inherit;border:1px solid #bfc8cc;background:white;color:var(--ink);border-radius:10px;padding:9px 12px;cursor:pointer}button:hover{border-color:var(--accent)}button.primary{background:var(--accent);color:white;border-color:var(--accent)}button:disabled{opacity:.45;cursor:not-allowed}.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}.steps{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 16px}.stepchip{width:38px;height:38px;border-radius:50%;padding:0;font-weight:800}.stepchip.active{background:var(--accent);border-color:var(--accent);color:#fff}.operation{display:grid;grid-template-columns:minmax(180px,270px) 1fr;gap:18px;align-items:start;margin:10px 0}.opname{font-family:Georgia,serif;font-size:24px}.source-label{display:inline-block;background:#eef0ec;border:1px solid #cfd6cf;color:#455348;border-radius:999px;padding:3px 8px;font-size:12px;font-weight:700}.gridwrap{overflow-x:auto;padding-bottom:4px}.bluesgrid{display:grid;grid-template-columns:repeat(12,minmax(82px,1fr));gap:5px;min-width:1030px}.measure{position:relative;min-height:92px;border:1px solid var(--line);border-radius:9px;background:var(--stable);padding:25px 7px 8px;text-align:center;transition:.2s}.measure.changed{background:var(--changed);border:2px solid var(--changedLine);padding:24px 6px 7px}.mnum{position:absolute;top:5px;left:7px;font-size:11px;color:var(--muted);font-weight:800}.chords{font-family:Georgia,"Times New Roman",serif;font-size:19px;font-weight:700;line-height:1.25}.arrow{font-family:system-ui;font-size:12px;color:var(--muted);margin:0 2px}.diffnote{font-size:12px;color:#855611;margin-top:5px}.legend{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:13px}.swatch{display:inline-block;width:13px;height:13px;border-radius:3px;vertical-align:-2px;margin-right:5px;border:1px solid var(--line)}.swatch.changed{background:var(--changed);border-color:var(--changedLine)}.audioBox{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#f7f9fa;border:1px solid #d8e0e4;border-radius:12px;padding:10px 12px;margin-top:12px}audio{max-width:100%;height:36px}.ledger{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}.ledger .item{border:1px solid var(--line);border-radius:10px;padding:10px;background:#faf9f5}.ledger b{display:block;color:var(--accent);font-size:13px}.classTable img{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;display:block}.rowguide{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}.rowguide button.active{background:var(--ink);color:#fff;border-color:var(--ink)}.focus{padding:12px;border:1px solid var(--line);border-radius:10px;margin-top:10px;background:#faf9f5}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.reflection{display:grid;grid-template-columns:1fr 1fr;gap:14px}.reflection>div{border:1px solid var(--line);border-radius:12px;padding:14px;background:#faf9f5}.small{font-size:13px;color:var(--muted)}footer{padding-top:8px;padding-bottom:34px;color:var(--muted);font-size:12px}@media(max-width:850px){.operation,.two,.reflection{grid-template-columns:1fr}.ledger{grid-template-columns:1fr 1fr}.rowguide{grid-template-columns:1fr 1fr}}@media(max-width:520px){.ledger,.rowguide{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="topnav"><a class="back" href="../index.html">← Harmony Lab Compendium</a><span class="small">Lab 6 · rebuilt from classroom source material</span></div>
+<div class="eyebrow">CMRM · Chapter 5 · Integration Lab</div>
+<h1>Blues Complexification</h1>
+<p class="lead">Do not begin with the finished dense harmony. Build it. Each step changes only a small part of the 12-bar field, so the student can see what operation was applied before hearing the whole result.</p>
+<div class="question">How much can the harmonic surface change while the blues remains recognizably the blues?</div>
+</header>
+<main>
+<section class="card">
+<div class="sectionnum">1 · Orientation</div>
+<h2>Keep the form fixed first</h2>
+<p>The 12 measures are the invariant frame. The first task is simply to recognize the functional pillars of an F blues: F7, B♭7 and C7. Later operations alter the routes between these landmarks, but the bar numbers never move.</p>
+<div class="callout"><b>Reading rule:</b> yellow cells are the only measures changed by the current construction step. Everything else is intentionally left visually quiet.</div>
+</section>
+
+<section class="card" id="builder">
+<div class="sectionnum">2 · Build the table</div>
+<h2>One operation at a time</h2>
+<p>The sequence below is reconstructed from the successive systems in the supplied MuseScore teaching file. The short labels preserve the terminology written in that source; the explanatory sentence underneath is the interpretation used in this lab.</p>
+<div class="steps" id="stepChips"></div>
+<div class="controls"><button id="prevBtn">← Previous operation</button><button class="primary" id="nextBtn">Next operation →</button><button id="resetBtn">Reset to basic blues</button></div>
+<div class="operation"><div><div class="opname" id="opName"></div><div id="sourceLabel"></div></div><div><p id="opExplain" style="margin-top:0"></p><p class="small" id="changedText"></p></div></div>
+<div class="legend"><span><span class="swatch changed"></span>changed at this step</span><span><span class="swatch"></span>carried over unchanged</span></div>
+<div class="gridwrap"><div class="bluesgrid" id="bluesGrid"></div></div>
+<div class="audioBox"><b>Hear this complete 12-bar stage:</b><audio id="stageAudio" controls preload="metadata"></audio><span class="small" id="audioLabel"></span></div>
+<div class="ledger" id="ledger"></div>
+</section>
+
+<section class="card">
+<div class="sectionnum">3 · Read the process, not just the result</div>
+<h2>What is accumulating?</h2>
+<div class="two">
+<div><h3>Preparation</h3><p>A target dominant can be approached by its own minor-seventh partner, creating a local ii–V. In the source this appears as <b>“prep. by min 7”</b>.</p></div>
+<div><h3>Dominant propagation</h3><p>A newly inserted event can itself acquire a dominant preparation. This is the source’s <b>“back-prop. of 7th”</b>: harmonic motion begins to propagate backward from a target.</p></div>
+<div><h3>Tritone substitution</h3><p>A dominant can be replaced by the dominant a tritone away while preserving its guide-tone tritone. This is exactly the operation explored in Lab 5.</p></div>
+<div><h3>Left deletion</h3><p>After a new approach chord has been inserted, the earlier chord occupying the left portion of the measure can be removed. The harmonic rhythm changes even though the target remains.</p></div>
+</div>
+<div class="callout warning"><b>Important:</b> this is not a claim that there is one historical path from “simple blues” to every sophisticated blues. It is a teaching construction: a controlled way of showing how familiar substitution operations can generate increasing local density.</div>
+</section>
+
+<section class="card classTable">
+<div class="sectionnum">4 · The classroom map</div>
+<h2>Now reveal the larger table</h2>
+<p>This is the comparison table used in class. At this point the student has already manipulated the operations that create density, so the named rows no longer arrive as unexplained walls of chord symbols.</p>
+<img src="assets/blues_complexification_class_table.png" alt="Classroom table comparing Basic Blues Form, Charlie Parker Blues, Wes Montgomery Blues, Blues for Alice, and Coltrane Changes across twelve measures.">
+<div class="rowguide" id="rowGuide"></div>
+<div class="focus" id="rowFocus"></div>
+</section>
+
+<section class="card">
+<div class="sectionnum">5 · Source audio comparison</div>
+<h2>Listen through the construction sequence</h2>
+<p>The supplied teaching package contains ten full-length audio examples. Buttons 1–9 correspond to the visible construction systems above. The source also contains a tenth playback whose displayed chord symbols duplicate the ninth system; it is retained here as source material rather than assigned a new transformation that is not explicit in the score.</p>
+<div class="controls" id="sourceAudioButtons"></div>
+<div class="audioBox"><audio id="sourceAudio" controls preload="metadata"></audio><span class="small" id="sourceAudioLabel">Choose an example.</span></div>
+</section>
+
+<section class="card">
+<div class="sectionnum">6 · Reflection</div>
+<h2>What changed, and what remained invariant?</h2>
+<div class="reflection"><div><h3>What changed?</h3><ul><li>harmonic density inside individual bars</li><li>approach chords and local tonicizations</li><li>dominant roots through tritone substitution</li><li>harmonic rhythm through insertion and deletion</li><li>the amount of directed chromatic motion</li></ul></div><div><h3>What remained invariant?</h3><ul><li>the twelve-measure temporal frame</li><li>recognizable tonic / IV / dominant landmarks</li><li>the return toward F</li><li>the possibility of hearing later versions as transformations of a blues rather than unrelated progressions</li></ul></div></div>
+</section>
+</main>
+<footer>CMRM Harmony Lab · Lab 6 uses the instructor-supplied classroom table, MuseScore construction file and audio examples.</footer>
+<script>
+const base=["F7","B♭7","F7","F7","B♭7","B♭7","F7","F7","C7","B♭7","F7","F7"];
+const stages=[
+ {name:"Basic dominant-seventh blues",src:"prep. by 7 (all chords)",explain:"Begin with the 12-bar blues landmarks represented as dominant-seventh sonorities. This is the stable field against which later changes can be seen.",ch:base,changed:[]},
+ {name:"Prepare IV with ii–V",src:"prep. by min 7",explain:"Before B♭7 in measure 5, measure 4 becomes Cm7 → F7. The destination B♭7 stays fixed; its approach is articulated.",ch:["F7","B♭7","F7","Cm7 → F7","B♭7","B♭7","F7","F7","C7","B♭7","F7","F7"],changed:[4]},
+ {name:"Substitute the dominant",src:"tritone sub.",explain:"The F7 that prepared B♭7 is replaced by B7, its tritone substitute. The local destination remains B♭7 while the bass route changes radically.",ch:["F7","B♭7","F7","Cm7 → B7","B♭7","B♭7","F7","F7","C7","B♭7","F7","F7"],changed:[4]},
+ {name:"Propagate a dominant backward",src:"back-prop. of 7th",explain:"The approach chain acquires another dominant one step earlier: G7 is inserted at the end of measure 3 to point toward Cm7 in measure 4.",ch:["F7","B♭7","F7 → G7","Cm7 → B7","B♭7","B♭7","F7","F7","C7","B♭7","F7","F7"],changed:[3]},
+ {name:"Delete the displaced left event",src:"left-del.",explain:"Once G7 has become the active preparation in measure 3, the earlier F7 on the left is removed. The target chain remains, but the new event receives the whole measure.",ch:["F7","B♭7","G7","Cm7 → B7","B♭7","B♭7","F7","F7","C7","B♭7","F7","F7"],changed:[3]},
+ {name:"Prepare G7 with its ii",src:"prep. by min 7",explain:"Measure 3 becomes Dm7 → G7. The same ii–V mechanism used earlier is now applied one level farther back in the chain.",ch:["F7","B♭7","Dm7 → G7","Cm7 → B7","B♭7","B♭7","F7","F7","C7","B♭7","F7","F7"],changed:[3]},
+ {name:"Extend the chain into measure 2",src:"back-prop. of 7th + tritone sub",explain:"A7 is inserted after B♭7 to prepare Dm7, while G7 is replaced by D♭7. Two familiar operations now act in neighboring measures.",ch:["F7","B♭7 → A7","Dm7 → D♭7","Cm7 → B7","B♭7","B♭7","F7","F7","C7","B♭7","F7","F7"],changed:[2,3]},
+ {name:"Delete the earlier B♭7",src:"left-del.",explain:"The inserted A7 now occupies measure 2 by itself. Again, deletion changes harmonic rhythm without changing the chain's next target, Dm7.",ch:["F7","A7","Dm7 → D♭7","Cm7 → B7","B♭7","B♭7","F7","F7","C7","B♭7","F7","F7"],changed:[2]},
+ {name:"Prepare A7 with its ii",src:"prep. by min 7",explain:"Measure 2 becomes Em7 → A7. The repeated preparation rule has now generated a longer descending network leading toward the original IV-region destination.",ch:["F7","Em7 → A7","Dm7 → D♭7","Cm7 → B7","B♭7","B♭7","F7","F7","C7","B♭7","F7","F7"],changed:[2]}
+];
+const ledgerItems=[
+ ["Invariant frame","12 measures remain in the same positions."],
+ ["Stable landmark","B♭7 at measure 5 is the destination around which the early chain grows."],
+ ["Reusable rule","The same preparation operation can be recursively applied to newly inserted chords."],
+ ["Complexity source","Density grows through local transformations, not through replacing the whole form at once."]
+];
+let current=0;
+const grid=document.getElementById('bluesGrid'),chips=document.getElementById('stepChips');
+function chordHTML(s){return s.split(' → ').map((x,i)=>`${i?'<span class="arrow">→</span>':''}<span>${x}</span>`).join(' ')}
+function render(){
+ const st=stages[current];
+ document.getElementById('opName').textContent=st.name;
+ document.getElementById('sourceLabel').innerHTML=`<span class="source-label">source label: ${st.src}</span>`;
+ document.getElementById('opExplain').textContent=st.explain;
+ document.getElementById('changedText').textContent=current===0?'Starting field: no comparison step yet.':`Changed measure${st.changed.length>1?'s':''}: ${st.changed.join(', ')}.`;
+ grid.innerHTML='';
+ st.ch.forEach((c,i)=>{const d=document.createElement('div');d.className='measure '+(st.changed.includes(i+1)?'changed':'');d.innerHTML=`<span class="mnum">${i+1}</span><div class="chords">${chordHTML(c)}</div>${st.changed.includes(i+1)?'<div class="diffnote">new at this step</div>':''}`;grid.appendChild(d)});
+ [...chips.children].forEach((b,i)=>b.classList.toggle('active',i===current));
+ document.getElementById('prevBtn').disabled=current===0;document.getElementById('nextBtn').disabled=current===stages.length-1;
+ const a=document.getElementById('stageAudio');a.src=`audio/${current+1}.mp3`;a.load();document.getElementById('audioLabel').textContent=`Source audio example ${current+1}`;
+}
+stages.forEach((s,i)=>{const b=document.createElement('button');b.className='stepchip';b.textContent=i+1;b.title=s.name;b.onclick=()=>{current=i;render()};chips.appendChild(b)});
+document.getElementById('prevBtn').onclick=()=>{if(current>0){current--;render()}};document.getElementById('nextBtn').onclick=()=>{if(current<stages.length-1){current++;render()}};document.getElementById('resetBtn').onclick=()=>{current=0;render()};
+document.getElementById('ledger').innerHTML=ledgerItems.map(x=>`<div class="item"><b>${x[0]}</b>${x[1]}</div>`).join('');
+const rows=[
+ ["Basic Blues Form","The structural reference: broad I7–IV7–V7 landmarks with very low harmonic density."],
+ ["Charlie Parker Blues","The form becomes much more directional: approach chords, ii–V motion and a denser turnaround appear while the 12-bar scaffold remains visible."],
+ ["Wes Montgomery Blues","Chromatic dominant motion and inserted ii–V units make the route between landmarks more continuous and less block-like."],
+ ["Blues for Alice","A highly articulated bebop pathway: local ii–V chains and descending target relations compress much more harmonic information into the same twelve measures."],
+ ["Coltrane Changes","The comparison pushes the question furthest: large-scale cyclic root organization is superimposed on the blues frame, making the invariant form increasingly abstract."]
+];
+const rg=document.getElementById('rowGuide'),rf=document.getElementById('rowFocus');
+rows.forEach((r,i)=>{const b=document.createElement('button');b.textContent=r[0];b.onclick=()=>{[...rg.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');rf.innerHTML=`<h3>${r[0]}</h3><p>${r[1]}</p>`};rg.appendChild(b)});rg.children[0].click();
+const sab=document.getElementById('sourceAudioButtons'),sa=document.getElementById('sourceAudio'),sal=document.getElementById('sourceAudioLabel');
+for(let i=1;i<=10;i++){const b=document.createElement('button');b.textContent=`Example ${i}`;b.onclick=()=>{sa.src=`audio/${i}.mp3`;sa.load();sa.play().catch(()=>{});sal.textContent=i<=9?`Source example ${i}: construction stage ${i}.`:`Source example 10: retained exactly as supplied; the visible harmony in the score duplicates stage 9.`};sab.appendChild(b)}
+render();
+</script>
+</body>
+</html>

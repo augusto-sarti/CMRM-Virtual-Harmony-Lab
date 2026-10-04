@@ -1,0 +1,13 @@
+CMRM Harmony Lab Compendium v0.14 — Lab 7 validation
+
+Issues: 0
+
+Version C five-part maximum adjacent leap (semitones): 2, 2, 1, 1, 4
+Expected lower-voice lines:
+  voice 1: 52 52 52 50 50 50 48 48
+  voice 2: 55 55 53 53 53 53 52 52
+  voice 3: 59 58 57 56 55 55 55 55
+  voice 4: 60 60 60 60 59 59 59 59
+  soprano: 64 67 69 65 65 62 64 60
+Audio-mode check: harmony-only code uses c.n.slice(0,-1), excluding soprano.
+A/B check: disabled for baseline; baseline then selected with 950 ms pause.
