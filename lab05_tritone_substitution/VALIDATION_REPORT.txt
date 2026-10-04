@@ -1,0 +1,16 @@
+CMRM Harmony Lab 05 v0.9 validation
+
+Context phrase original:
+Cmaj7 [48,55,59,64] -> Am7 [45,55,60,64] -> Dm7 [50,57,60,65] -> G7 [43,55,59,65] -> Cmaj7 [48,55,59,64]
+
+Context phrase substitute:
+Cmaj7 [48,55,59,64] -> Am7 [45,55,60,64] -> Dm7 [50,57,60,65] -> Db7 [49,56,59,65] -> Cmaj7 [48,55,59,64]
+
+Substituted cadence voice identities:
+Bass: 50 -> 49 -> 48 = D3 -> Db3 -> C3
+Voice 2: 57 -> 56 -> 55 = A3 -> Ab3 -> G3
+Voice 3: 60 -> 59 -> 59 = C4 -> Cb4/B3 -> B3
+Voice 4: 65 -> 65 -> 64 = F4 -> F4 -> E4
+
+All requested MIDI notes have exact local WAV files. No runtime transposition.
+JavaScript syntax checked with node --check.

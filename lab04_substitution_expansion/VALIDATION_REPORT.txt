@@ -1,0 +1,14 @@
+CMRM Harmony Lab 4 validation
+
+Functional substitutions:
+Tonic: Cmaj7 {C,E,G,B} <-> Am7 {A,C,E,G}; shared {C,E,G}
+Predominant: Dm7 {D,F,A,C} <-> Fmaj7 {F,A,C,E}; shared {F,A,C}
+Dominant: G7 {G,B,D,F} <-> Bm7b5 {B,D,F,A}; shared {B,D,F}
+
+Tonicization/expansion target:
+Fmaj7 {F,A,C,E}
+C7 {C,E,G,Bb} = V7/IV
+Gm7 {G,Bb,D,F} = ii/IV
+Expanded path: Gm7 -> C7 -> Fmaj7
+
+All requested MIDI files are bundled locally. No runtime pitch transposition.

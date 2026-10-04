@@ -1,0 +1,25 @@
+CMRM Harmony Lab — Module 1 validation summary
+
+Harmonic target:
+Dm7    D F A C
+G7     G B D F
+Cmaj7  C E G B
+
+Audio inventory used by the module:
+MIDI 43 45 47 48 50 52 53 55 57 59 60 62
+
+Design safeguards:
+- no HTMLAudioElement.playbackRate transposition
+- one exact local WAV per permitted MIDI note
+- curated voicings validated against chord pitch classes and sample inventory
+- random generator draws only from the verified sample inventory
+- random voicings contain one instance of each chord pitch class
+- voices are sorted to avoid crossing
+- adjacent spacing is constrained to <= 12 semitones
+- total voicing span is constrained to <= 19 semitones
+- transition selection penalizes large individual leaps
+- previous chord audio is stopped before the next chord begins
+
+Pedagogical guide-tone paths are extracted from the selected voicing itself:
+F -> F -> E
+C -> B -> B

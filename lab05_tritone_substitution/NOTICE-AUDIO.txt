@@ -1,0 +1,11 @@
+Audio provenance
+================
+
+The piano WAV files in samples/ were rendered from TimGM6mb.sf2, General MIDI program 0 (Acoustic Grand Piano).
+
+Upstream SoundFont copyright:
+- 2004 Tim Brechbill
+- 2010 David Bolton
+
+The Debian package metadata states that TimGM6mb.sf2 is licensed under GNU GPL version 2.
+The original SoundFont itself is not included in this test ZIP; only rendered WAV excerpts used by this diagnostic build are included.
